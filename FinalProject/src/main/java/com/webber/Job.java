@@ -26,6 +26,7 @@ public class Job implements Serializable, Comparable<Job> {
     private String experience;
     private String wageCategory;
     private double salary;
+    private String jobDescription;
 
     public Job() {
         id = 0;
@@ -39,11 +40,12 @@ public class Job implements Serializable, Comparable<Job> {
         experience = "";
         wageCategory = "";
         salary = 0.0;
+        jobDescription = "";
     }
 
     public Job(int id, boolean active, LocalDate dateCreated, String title, 
             String city, String state, boolean fullTime, String department, 
-            String experience, String wageCategory, double salary) {
+            String experience, String wageCategory, double salary, String jobDescription) {
         this.id = id;
         this.active = active;
         this.dateCreated = dateCreated;
@@ -55,6 +57,7 @@ public class Job implements Serializable, Comparable<Job> {
         this.experience = experience;
         this.wageCategory = wageCategory;
         this.salary = salary;
+        this.jobDescription = jobDescription;
     }
 
     public int getId() {
@@ -150,13 +153,21 @@ public class Job implements Serializable, Comparable<Job> {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    public String getJobDescription() {
+        return jobDescription;
+    }
+
+    public void setJobDescription(String jobDescription) {
+        this.jobDescription = jobDescription;
+    }
     
     // Prints out a String with the title, location, department, and if the job is active
     public String ToString() {
         return "Title: " + title + 
                "\nLocation: " + city + ", " + state + 
                "\nDepartment: " + department + 
-               "/nActive: " + active;
+               "\nActive: " + active;
     }
     
     // Compares the dates in the database and organizes them from newest to oldest

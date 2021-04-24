@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+a {
+    color: hsl(191, 100%, 0%);
+    text-decoration: none;
+}
+.nav-bar {
+    background-color: hsl(191, 100%, 75%);
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+body {
+    background-color: hsl(191, 100%, 100%);
+}
+.container {
+    color: white;
+    text-align: center;
+    width: 600px;
+    margin: 0 auto;
+}
+.pagination {
+    font-size: 0;
+    margin: 0 0 10px;
+}
+.pagination a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+    background-color: hsl(191, 100%, 75%);
+    font-size: 16px;
+}
+.pagination a:hover {
+    color: white;
+    background-color: hsl(191, 100%, 45%);
+}
+.pagination a.active {
+    background-color: hsl(191, 100%, 65%);
+}
+.jobs {
+    background-color: hsl(191, 100%, 25%);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+.job {
+    background-color: white;
+    color: black; 
+    border: 2px solid black;
+    width: 600px;
+    text-align: center;
+    padding: 10px;
+}
+.job p {
+    margin: 5px 0 0;
+}
