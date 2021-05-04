@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.reflect.Array.set;
 import java.net.MalformedURLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -98,6 +100,45 @@ public class JobServlet extends HttpServlet {
         } catch (ParserConfigurationException | IOException | SAXException ex) {
             return;
         }
+        String id = request.getParameter("id");
+        if (id != null) {
+            viewJob(request, response);
+        } else {
+            listJobs(request, response);
+        }
+
+    }
+
+    private void viewJob(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+//        request.setAttribute("jobs", jobs);
+        request.getRequestDispatcher("/WEB-INF/jsp/view/job.jsp").forward(request, response);
+    }
+    
+    private Job getJob(String idString) throws ServletException, IOException {
+        if (idString == null || idString.length() == 0) {
+            return null;
+        }
+
+        try {
+            Job job = new Job();
+            for (int i = 0; i < jobs.size(); i++) {
+                if (jobs.contains("8715")) {
+                    idString = String.valueOf(8715);
+                    job.setId(Integer.parseInt(idString));
+                }
+            }
+            
+            if (job == null) {
+                return null;
+            }
+            return job;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private void listJobs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int page = 1;
         int jobsPerPage = 4;
         int begin = 0;
@@ -128,11 +169,6 @@ public class JobServlet extends HttpServlet {
         request.setAttribute("currentPage", page);
         request.getRequestDispatcher("/WEB-INF/jsp/view/jobList.jsp").forward(request, response);
     }
-
-//    private void viewJob(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        request.setAttribute("jobs", jobs);
-//        request.getRequestDispatcher("/WEB-INF/jsp/view/job.jsp").forward(request, response);
-//    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

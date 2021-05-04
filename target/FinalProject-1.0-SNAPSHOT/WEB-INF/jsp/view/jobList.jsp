@@ -20,9 +20,9 @@
             <div class="jobs">
                 <c:forEach items="${jobs}" var="job" begin="${begin}" end="${end}">
                     <div class="job">
-                        <p><a href="/job?id=${job.id}"><c:out value="${job.title}" /></a>&nbsp;<c:out value="${job.department}" /></p>
+                        <p><a href="/jobs?id=${job.id}"><c:out value="${job.title}" /></a>&nbsp;<c:out value="${job.department}" /></p>
                         <p><c:out value="${job.city}" />&nbsp;<c:out value="${job.state}" /></p>
-                        <a class="button" href="<c:url value="/job" />">Apply Now!</a><%-- Not cooperating --%>
+                        <a class="button" href="<c:url value="/jobs?id=${job.id}" />">Apply Now!</a><%-- Not cooperating --%>
                     </div>
                 </c:forEach>
             </div>
