@@ -6,6 +6,20 @@ a {
     color: hsl(191, 100%, 0%);
     text-decoration: none;
 }
+a.button {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: hsl(191, 100%, 45%);
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+a.button:hover {
+    color: black;
+    background-color: hsl(191, 100%, 75%);
+    cursor: pointer;
+}
 .nav-bar {
     background-color: hsl(191, 100%, 75%);
     padding-top: 1px;
@@ -18,6 +32,14 @@ body {
     color: white;
     text-align: center;
     width: 600px;
+    margin: 0 auto;
+}
+.job-container {
+    float: left;
+    margin: 0 auto;
+}
+.apply-container {
+    float: right;
     margin: 0 auto;
 }
 .pagination {

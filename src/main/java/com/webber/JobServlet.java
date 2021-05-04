@@ -29,7 +29,7 @@ public class JobServlet extends HttpServlet {
     private static final String FILE_NAME = "job-data.tsv";
     private static SortedSet<Job> jobs;
 
-    private void readFromFile(HttpServletRequest request, HttpServletResponse response) 
+    private void readFromFile(HttpServletRequest request, HttpServletResponse response)
             throws FileNotFoundException, ParserConfigurationException, MalformedURLException, IOException, SAXException {
         if (jobs == null) {
             try ( Scanner in = new Scanner(new File(getServletContext().getRealPath(FILE_PATH + FILE_NAME)))) {
@@ -128,6 +128,11 @@ public class JobServlet extends HttpServlet {
         request.setAttribute("currentPage", page);
         request.getRequestDispatcher("/WEB-INF/jsp/view/jobList.jsp").forward(request, response);
     }
+
+//    private void viewJob(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        request.setAttribute("jobs", jobs);
+//        request.getRequestDispatcher("/WEB-INF/jsp/view/job.jsp").forward(request, response);
+//    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
