@@ -22,7 +22,7 @@
                     <div class="job">
                         <p><a href="/jobs?id=${job.id}"><c:out value="${job.title}" /></a>&nbsp;<c:out value="${job.department}" /></p>
                         <p><c:out value="${job.city}" />&nbsp;<c:out value="${job.state}" /></p>
-                        <a class="button" href="<c:url value="/jobs?id=${job.id}" />">Apply Now!</a><%-- Not cooperating --%>
+                        <a class="button" href="<c:url value="/jobs?id=${job.id}" />">Apply Now!</a>
                     </div>
                 </c:forEach>
             </div>

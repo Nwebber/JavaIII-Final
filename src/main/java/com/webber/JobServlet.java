@@ -112,6 +112,7 @@ public class JobServlet extends HttpServlet {
     private void viewJob(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
 //        request.setAttribute("jobs", jobs);
+        Job job = getJob(request.getParameter("id"));
         request.getRequestDispatcher("/WEB-INF/jsp/view/job.jsp").forward(request, response);
     }
     
@@ -120,15 +121,17 @@ public class JobServlet extends HttpServlet {
             return null;
         }
 
+        int jID = Integer.parseInt(idString);
+        
         try {
-            Job job = new Job();
-            for (int i = 0; i < jobs.size(); i++) {
-                if (jobs.contains("8715")) {
-                    idString = String.valueOf(8715);
-                    job.setId(Integer.parseInt(idString));
+            Job job = null;
+            for(Job j: jobs) {
+                if (job.getId() == jID) {
+                    job = j;
+                    break;
                 }
             }
-            
+
             if (job == null) {
                 return null;
             }
