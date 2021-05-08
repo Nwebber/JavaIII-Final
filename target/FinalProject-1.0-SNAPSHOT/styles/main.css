@@ -45,18 +45,36 @@ body {
     /*width: 45%;*/
 }
 label {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  text-align: left;
-  /*width: 400px;*/
-  line-height: 26px;
-  /*margin-bottom: 10px;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    /*width: 400px;*/
+    line-height: 26px;
+    /*margin-bottom: 10px;*/
 }
 input {
-  height: 20px;
-  flex: 0 0 200px;
-  margin-left: 10px;
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+}
+input[type=submit] {
+    color: white;
+    text-decoration: none;
+    padding: 5px 5px 15px 5px;
+    background-color: hsl(191, 100%, 45%);
+    display: inline-block;    
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+}
+input[type=submit]:hover {
+    color: black;
+    background-color: hsl(191, 100%, 75%);
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
 }
 .pagination {
     font-size: 0;
@@ -93,4 +111,11 @@ input {
 }
 .job p {
     margin: 5px 0 0;
+}
+.error {
+  margin-bottom: 10px;
+  margin-top: 0;
+  text-align: center;
+  font-style: italic;
+  color: hsl(20, 98%, 63%);
 }

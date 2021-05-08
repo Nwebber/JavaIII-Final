@@ -110,8 +110,6 @@ public class JobServlet extends HttpServlet {
     }
 
     private void viewJob(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-//        request.setAttribute("jobs", jobs);
         Job job = getJob(request.getParameter("id"));
         request.getRequestDispatcher("/WEB-INF/jsp/view/job.jsp").forward(request, response);
     }

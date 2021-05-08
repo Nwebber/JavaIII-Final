@@ -1,2 +1,6 @@
+com\webber\LoginServlet.class
 com\webber\Job.class
+com\webber\Application.class
+com\webber\ApplicationServlet.class
+com\webber\Attachment.class
 com\webber\JobServlet.class
