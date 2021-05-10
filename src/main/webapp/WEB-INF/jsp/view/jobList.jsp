@@ -20,17 +20,9 @@
             <div class="jobs">
                 <c:forEach items="${jobs}" var="job" begin="${begin}" end="${end}">
                     <div class="job">
-                        <p><a href="/jobs?id=${job.id}"><c:out value="${job.title}" /></a>&nbsp;<c:out value="${job.department}" /></p>
+                        <p><a href="<c:url value="/jobs"><c:param name="id" value="${job.id}" /></c:url>"><c:out value="${job.title}" /></a>&nbsp;<c:out value="${job.department}" /></p>
                         <p><c:out value="${job.city}" />&nbsp;<c:out value="${job.state}" /></p>
-                        
-                        <c:choose>
-                            <c:when test="${empty sessionScope.username}">
-                                &nbsp;<a class="button" href="login?logout">Apply Now!</a>
-                            </c:when>
-                            <c:otherwise>
-                                &nbsp;<a class="button" href="<c:url value="/jobs?id=${job.id}" />">Apply Now!</a>
-                            </c:otherwise>
-                        </c:choose>
+                        <p><a class="button" href="<c:url value="/jobs"><c:param name="id" value="${job.id}" /></c:url>">Apply Now!</a></p>
                     </div>
                 </c:forEach>
             </div>

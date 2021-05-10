@@ -191,6 +191,14 @@ public class Application implements Serializable, Comparable<Application> {
     public void setStartDateError(String startDateError) {
         this.startDateError = startDateError;
     }
+    
+    public void addAttachment(Attachment attachment) {
+        this.resumeUpload.put(attachment.getName(), attachment);
+    }
+
+    public int getNumberOfAttachments() {
+        return this.resumeUpload.size();
+    }
 // </editor-fold>
     
     @Override

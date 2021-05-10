@@ -14,14 +14,16 @@
             <p><a href="jobs">| Jobs |</a> &nbsp;<a href="applications">| Applications |</a><c:if test="${!empty sessionScope.username}">&nbsp;<a href="login?logout">| Logout |</a></c:if></p>
         </div>
         <div class="job">
-            <form>
-                <c:forEach items="${application}" var="apps">
-                    <c:out value="${job.title}" /><br>
-                    <c:out value="${apps.firstName}" />&nbsp;
-                    <c:out value="${apps.lastName}" /><br>
-                    <c:out value="${apps.email}" />&nbsp;
+            <c:if test="${fn:length(applicationDatabase) > 0}">
+                <c:forEach items="${applicationDatabase}" var="entry">
+                    Application ${entry.key}: <a href="<c:url value="/applications">
+                                                     <c:param name="action" value="view" />
+                                                     <c:param name="jobId" value="${entry.key}" />
+                                                 </c:url>"><c:out value="${entry.value.title}" /></a>
+                    <c:out value="${entry.value.firstName}" />&nbsp;<c:out value="${entry.value.lastName}" /><br />
+                    <c:out value="${entry.value.email}" />
                 </c:forEach>
-            </form>
+            </c:if>
         </div>
     </body>
 </html>
